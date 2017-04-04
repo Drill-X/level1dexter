@@ -16,19 +16,20 @@ public static void main(String[] args) {
 	Bug bug = new Bug();
 Actor actor = new Actor();
 	Flower flower = new Flower();
+	world.add(new Location(0,0), bug);
+	world.add(new Location(1,1), flower);
+//for (int i = 0; i < 10; i++) {
+	//world.add(new Location(i,i), bug);
+//}
+//for (int j = 9; j >= 0; j--) {
+	//world.add(new Location(k,j), flower);
+	//k++;
+//}
 
-for (int i = 0; i < 10; i++) {
-	world.add(new Location(i,i), bug);
-}
-for (int j = 9; j >= 0; j--) {
-	world.add(new Location(k,j), flower);
-	k++;
-}
-
-	for (int g = 0; g < 10; g++) {
-		world.add(new Location(0,g), actor);
+	//for (int g = 0; g < 10; g++) {
+	//	world.add(new Location(0,g), actor);
 		
-	}
+	//}
 
 	
 	
