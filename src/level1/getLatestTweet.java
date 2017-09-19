@@ -17,7 +17,7 @@ public static void main(String[] args) {
 	getLatestTweet getLatestTweet = new getLatestTweet();
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
-	JTextField text = new JTextField(30);
+	JTextField text = new JTextField(140);
 	JButton button = new JButton("CHECK TWITTER");
 	frame.add(panel);
 	panel.add(text);
