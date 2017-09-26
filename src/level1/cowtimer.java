@@ -20,11 +20,7 @@ cowtimer.start();
 	int timeStart;
 	private int minutes;
 
-	public void cowTimer() {
-		int timeSet = setTime();
-		start(timeSet);
 
-	}
 
 	public void setTime(int minutes) {
 		this.minutes = minutes;
