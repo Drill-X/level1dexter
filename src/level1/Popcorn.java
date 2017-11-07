@@ -7,7 +7,7 @@ package level1;
 class Microwave {
 	private int cookTime;
 	Popcorn thingToBeCooked;
-	
+
 	Microwave() {
 		System.out.println("Microwave says: a Microwave has been made.");
 	}
@@ -18,37 +18,35 @@ class Microwave {
 	}
 
 	void setTime(int cookTimeInMinutes) {
-		System.out.println("Microwave says: cook time is set to " + cookTime + " minutes.");
 		this.cookTime = cookTimeInMinutes;
+		System.out.println("Microwave says: cook time is set to " + cookTime + " minutes.");
 	}
 
 	void startMicrowave() {
 		if (thingToBeCooked == null)
 			System.out.println("Microwave says: there's nothing in the microwave!");
-		for (int i = 0; i < cookTime*10 + 1; i++) {
+		for (int i = 0; i < cookTime * 10 + 1; i++) {
 			thingToBeCooked.applyHeat();
 		}
 	}
 }
 
 public class Popcorn {
-
 	private int kernels = 20;
 	private String flavor;
-	
+
 	public static void main(String[] args) {
-		Popcorn corn = new Popcorn("Chocolate");
-		for (int i = 0; i < 21; i++) {
-			corn.applyHeat();
-		}
-		
+		Microwave wave = new Microwave();
+		Popcorn corn = new Popcorn("liver");
+		wave.putInMicrowave(corn);
+		wave.setTime(2);
+		wave.startMicrowave();
 	}
-	
+
 	Popcorn(String flavor) {
 		this.flavor = flavor;
 		System.out.println("Popcorn says: making package of " + this.flavor + " popcorn.");
 	}
-
 
 	public void applyHeat() {
 		pause();
@@ -68,7 +66,5 @@ public class Popcorn {
 			e.printStackTrace();
 		}
 	}
-	
+
 }
-
-
