@@ -1,5 +1,6 @@
 package level1;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
@@ -13,10 +14,10 @@ public class typingTutor implements KeyListener {
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
 	JLabel label = new JLabel();
-
+	String letter;
 	void run() {
 		currentLetter = generateRandomLetter();
-		String letter = Character.toString(currentLetter);
+		letter = Character.toString(currentLetter);
 		frame.add(panel);
 		panel.add(label);
 		frame.setVisible(true);
@@ -51,13 +52,18 @@ public class typingTutor implements KeyListener {
 		char let = e.getKeyChar();
 		String let2 = Character.toString(let);
 		System.out.println(let2);
+		if(letter.equals(let2)){
+			panel.setBackground(Color.green);
+		}else {
+			panel.setBackground(Color.red);
+		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		currentLetter = generateRandomLetter();
-		String letter = Character.toString(currentLetter);
+letter = Character.toString(currentLetter);
 		label.setText(letter);
 	}
 
