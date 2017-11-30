@@ -93,10 +93,10 @@ public class Spamalot implements ActionListener {
 			sendstat = sendSpam(email, sub, message);
 		}
 		if (sendstat == true) {
-			Email.setBackground(Color.green);
+			panel.setBackground(Color.green);
 
 		} else {
-			Email.setBackground(Color.red);
+			panel.setBackground(Color.red);
 
 		}
 	}
