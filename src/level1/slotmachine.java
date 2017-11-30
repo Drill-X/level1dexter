@@ -40,7 +40,7 @@ public class slotmachine implements ActionListener {
 		spin.addActionListener(this);
 
 		frame.setVisible(true);
-		frame.setSize(400, 75);
+		frame.setSize(550, 75);
 	}
 
 	public static void main(String[] args) {
@@ -71,6 +71,11 @@ public class slotmachine implements ActionListener {
 		monSpent = Integer.toString(moneySpent);
 		monErnd = Integer.toString(moneyEarned);
 		monLost = Integer.toString(moneyLost);
-		frame.setTitle("Spent: $" + monSpent + ".00 Earned: $" + monErnd + ".00 Lost: $" + monLost + ".00");
+		if(moneyLost >= 0){
+			frame.setTitle("Spent: $" + monSpent + ".00 Earned: $" + monErnd + ".00 Lost: $" + monLost + ".00");
+		}else if(moneyLost < 0){
+			frame.setTitle("You have earned $1.00, no stop playing before you lose it trying to get more");
+			System.out.println(monLost);
+		}
 	}
 }
