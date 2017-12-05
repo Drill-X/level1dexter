@@ -2,13 +2,16 @@ package level1;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class whakamole implements ActionListener {
+	Date timeAtStart = new Date();
 	int mole;
 	int molBad;
 	int molGood;
@@ -27,6 +30,7 @@ public class whakamole implements ActionListener {
 	void run() {
 		frame.add(panel);
 		addButtons();
+		addButtonActionListiner();
 		setMole();
 
 		frame.setSize(250, 150);
@@ -91,6 +95,50 @@ public class whakamole implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println(mole);
+		JButton BP = (JButton)e.getSource();
+		if(BP == B1 && mole == 1){
+			molGood ++;
+		}else if(BP == B2 && mole == 2) {
+			molGood ++;	
+		}else if(BP == B3 && mole == 3) {
+			molGood ++;	
+		}else if(BP == B4 && mole == 4) {
+			molGood ++;	
+		}else if(BP == B5 && mole == 5) {
+			molGood ++;	
+		}else if(BP == B6 && mole == 6) {
+			molGood ++;	
+		}else if(BP == B7 && mole == 7) {
+			molGood ++;	
+		}else if(BP == B8 && mole == 8) {
+			molGood ++;	
+		}else if(BP == B9 && mole == 9) {
+			molGood ++;	
+		}else {
+			molBad ++;
+			if(molBad == 1) {
+				System.out.println("bad1");
+			}else if(molBad == 2) {
+				System.out.println("bad2");
+			}else if(molBad == 3) {
+				System.out.println("bad3");
+			}else if(molBad >= 4) {
+				System.out.println("bad4");
+				endGame(timeAtStart , molGood);
+			}
+		} 
+		setMole();
+		frame.setTitle("SCORE: " +molGood);
 	}
-}
+		
+		private void endGame(Date timeAtStart, int molesWhacked)
+		{
+			Date timeAtEnd = new Date();
+			JOptionPane.showMessageDialog(null, "Your whack rate is " + ((timeAtEnd.getTime() - timeAtStart.getTime()) / 1000.00 / molesWhacked) + " moles per second.");
+		}
+
+		
+		
+		
+	}
+

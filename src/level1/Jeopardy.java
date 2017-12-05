@@ -116,7 +116,7 @@ frame.add(quizPanel);
 	
 
 		// Use the method that plays the jeopardy theme music.
-		playJeopardyTheme();
+		//playJeopardyTheme();
 		JButton buttonPressed = (JButton) arg0.getSource();
 		// If the buttonPressed was the firstButton
 		if(buttonPressed == firstButton){
