@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class whakamole implements ActionListener {
+	boolean hasStarted = false;
 	Date timeAtStart = new Date();
 	int mole;
 	int molBad;
@@ -29,9 +30,10 @@ public class whakamole implements ActionListener {
 
 	void run() {
 		frame.add(panel);
+		frame.setTitle("PRESS ANY BUTTON");
 		addButtons();
 		addButtonActionListiner();
-		setMole();
+		
 
 		frame.setSize(250, 150);
 		frame.setVisible(true);
@@ -96,6 +98,7 @@ public class whakamole implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		JButton BP = (JButton)e.getSource();
+		if(hasStarted == true){
 		if(BP == B1 && mole == 1){
 			molGood ++;
 		}else if(BP == B2 && mole == 2) {
@@ -127,17 +130,53 @@ public class whakamole implements ActionListener {
 				endGame(timeAtStart , molGood);
 			}
 		} 
+		if(molBad <= 3){
+			frame.setTitle("SCORE: " +molGood+ " STRIKES: " +molBad);
+		}else{
+			frame.setTitle("SCORE: " +molGood+ " STRIKES: OUT" );
+		}
+		}else{
+			addButtonActionListiner();
+			frame.setTitle("SCORE: " +molGood+ " STRIKES: " +molBad);
+			hasStarted = true;
+		}
+		resetMole();
 		setMole();
-		frame.setTitle("SCORE: " +molGood);
 	}
 		
 		private void endGame(Date timeAtStart, int molesWhacked)
 		{
 			Date timeAtEnd = new Date();
 			JOptionPane.showMessageDialog(null, "Your whack rate is " + ((timeAtEnd.getTime() - timeAtStart.getTime()) / 1000.00 / molesWhacked) + " moles per second.");
+			frame.setTitle("PRESS ANY BUTTON");
+			resetMole();
+			removeButtonActionListiner();
+			hasStarted = false;
 		}
-
+void resetMole(){
+	B1.setText("");
+	B2.setText("");
+	B3.setText("");
+	B4.setText("");
+	B5.setText("");
+	B6.setText("");
+	B7.setText("");
+	B8.setText("");
+	B9.setText("");
+	System.out.println("molReset"); 
+}
 		
+void removeButtonActionListiner(){
+	B1.removeActionListener(this);
+	B2.removeActionListener(this);
+	B3.removeActionListener(this);
+	B4.removeActionListener(this);
+	B5.removeActionListener(this);
+	B6.removeActionListener(this);
+	B7.removeActionListener(this);
+	B8.removeActionListener(this);
+	B9.removeActionListener(this);
+}
 		
 		
 	}
