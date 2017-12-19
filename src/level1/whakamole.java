@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 public class whakamole implements ActionListener {
 	boolean hasStarted = false;
 	Date timeAtStart = new Date();
-	int mole;
+	int mole = 5;
 	int molBad;
 	int molGood;
 	JFrame frame = new JFrame();
@@ -30,11 +30,10 @@ public class whakamole implements ActionListener {
 
 	void run() {
 		frame.add(panel);
-		frame.setTitle("PRESS ANY BUTTON");
 		addButtons();
 		addButtonActionListiner();
-		
-
+		B5.setText("MOLE");
+		frame.setTitle("SCORE: " +molGood+ " STRIKES: " +molBad);
 		frame.setSize(250, 150);
 		frame.setVisible(true);
 	}
@@ -98,7 +97,6 @@ public class whakamole implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		JButton BP = (JButton)e.getSource();
-		if(hasStarted == true){
 		if(BP == B1 && mole == 1){
 			molGood ++;
 		}else if(BP == B2 && mole == 2) {
@@ -135,11 +133,6 @@ public class whakamole implements ActionListener {
 		}else{
 			frame.setTitle("SCORE: " +molGood+ " STRIKES: OUT" );
 		}
-		}else{
-			addButtonActionListiner();
-			frame.setTitle("SCORE: " +molGood+ " STRIKES: " +molBad);
-			hasStarted = true;
-		}
 		resetMole();
 		setMole();
 	}
@@ -148,7 +141,6 @@ public class whakamole implements ActionListener {
 		{
 			Date timeAtEnd = new Date();
 			JOptionPane.showMessageDialog(null, "Your whack rate is " + ((timeAtEnd.getTime() - timeAtStart.getTime()) / 1000.00 / molesWhacked) + " moles per second.");
-			frame.setTitle("PRESS ANY BUTTON");
 			resetMole();
 			removeButtonActionListiner();
 			hasStarted = false;
