@@ -56,6 +56,7 @@ void addListner() {
 @Override
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
+	System.out.println("ButtonPressed");
 	String In1S= num1.getText();
 	String In2S = num1.getText();
 	double In1 = Integer.parseInt(In1S);
@@ -63,12 +64,16 @@ public void actionPerformed(ActionEvent e) {
 	JButton BP = (JButton)e.getSource();
 	if(BP == Badd){
 		ansNum = add(In1,In2);
+		System.out.println("add");
 	}else if(BP == Bsub){
 		ansNum = sub(In1,In2);
+		System.out.println("sub");
 	}else if(BP == Bmul){
 		ansNum = mul(In1,In2);
+		System.out.println("mul");
 	}else if(BP == Bdiv){
 		ansNum = div(In1,In2);
+		System.out.println("div");
 	}
 	String labelText = Double.toString(ansNum);
 	ans.setText(labelText);
