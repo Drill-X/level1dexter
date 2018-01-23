@@ -25,6 +25,7 @@ public class SimpleCalculator implements ActionListener {
 	
 	void run() {
 		addComp();
+		addListner();
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
@@ -58,7 +59,7 @@ public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
 	System.out.println("ButtonPressed");
 	String In1S= num1.getText();
-	String In2S = num1.getText();
+	String In2S = num2.getText();
 	double In1 = Integer.parseInt(In1S);
 	double In2 = Integer.parseInt(In2S);
 	JButton BP = (JButton)e.getSource();
