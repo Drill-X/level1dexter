@@ -35,8 +35,8 @@ void addComp() {
 }
 void addListner() {
 	B1.addActionListener(this);
-	B1.addActionListener(this);
-	B1.addActionListener(this);
+	B2.addActionListener(this);
+	B3.addActionListener(this);
 }
 private void playSound(String fileName) {
 	AudioClip sound = JApplet.newAudioClip(getClass().getResource(fileName));
@@ -48,10 +48,13 @@ public void actionPerformed(ActionEvent e) {
 	JButton BP = (JButton)e.getSource();
 	if(BP == B1){
 		System.out.println("B1");
+		playSound("candy 1.wav");
 	}else if(BP == B2) {
 		System.out.println("B2");
+		playSound("candy 1.wav");
 	}else if(BP == B3) {
 		System.out.println("B3");
+		playSound("candy 1.wav");
 	}
 }
 
