@@ -30,7 +30,7 @@ public class TurtlePond implements KeyEventDispatcher {
 		JOptionPane.showMessageDialog(null, "Move the turtle with the arrow keys to find the hidden cookie.\nYou'll get warmer the closer you get.\n\nHurry or it'll die of hunger!");
 		
 		// 4. For debugging purposes, show the cookie. The user won’t see this.
-		showCookie();
+		//showCookie();
 	}
 
 	private void goUp() {
@@ -78,15 +78,25 @@ if(distance <= 20) {
 if(distance <= 10) {
 	JOptionPane.showMessageDialog(null, "thou hast sat on thy cookie");
 }
-		// 11. If more than 20 seconds have elapsed, tell them the turtle died of hunger!
+		// 11. If more than 60 seconds have elapsed, tell them the turtle died of hunger!
 if(time >= 60) {
 	JOptionPane.showMessageDialog(null, "thou hast starved to deth");
+	Double _X = getFirstLocation().getX();
+	Double _Y = getFirstLocation().getY();
+	int X = _X.intValue();
+	int Y = _Y.intValue();
+	Tortoise.setX(X);
+	Tortoise.setY(Y);
 }
 		// 12. If the Tortoise crosses it's own path, tell them they failed and move them back to the beginning
 if(wasHereBefore(tortoiseLocationX, tortoiseLocationY) == true && wasHereBefore(tortoiseLocationX, tortoiseLocationY)) {
 	JOptionPane.showMessageDialog(null, "thou FAILED");
-	Tortoise.setX(0);
-	Tortoise.setY(0);
+	Double _X = getFirstLocation().getX();
+	Double _Y = getFirstLocation().getY();
+	int X = _X.intValue();
+	int Y = _Y.intValue();
+	Tortoise.setX(X);
+	Tortoise.setY(Y);
 }
 	}
 	
