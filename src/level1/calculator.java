@@ -63,7 +63,7 @@ public void actionPerformed(ActionEvent e) {
 	}else if(BP == Bmul){
 		ansNum = mul(In1,In2);
 	}else if(BP == Bsqt) {
-		//ansNum=
+		ansNum = sqt(In1,In2);
 	}else if(BP == Bexp){
 		ansNum = exp(In1,In2);
 	}
@@ -81,16 +81,13 @@ double mul(double num1, double num2) {
 	return(ans);
 }
 
-//double sqt (double num1, double num2) {
-//	double ans = 
-//	return(ans);
-//}
+double sqt (double num1, double num2) {
+	double ans = Math.sqrt(num1);
+	return(ans);
+}
 double exp (double num1, double num2) {
 	double ans = 0;
-	for (int i = 0; i < num2; i++) {
-	ans +=	num1*num1;
-	System.out.println(ans);
-	}
+ans = Math.pow(num1, num2);
 		return(ans);	
 }
 }
