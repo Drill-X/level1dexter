@@ -36,18 +36,19 @@ pipeuY = randomPipeY;
 pipeuY = pipeuY - (pipeuH + gapL);
 pipebH = 500 - pipebY;
 }
-didHitPipeb();
+didHitPipeB();
+didHitPipeU();
 }
 void mousePressed(){
 birdV =- 5;
 }
-void didHitPipeb(){
-if(birdY <= pipebY && pipeX <= birdX && pipeuY <= pipebY - pipebH){
+void didHitPipeB(){
+if(birdX < pipeX + pipebW && birdX > pipeX && birdY < pipebY + pipebH && birdY > pipebY){
 println("you hit the bottom pipe");
 }
 }
 void didHitPipeU(){
-//if(){
-
-//}
+if(birdX < pipeX + pipeuW && birdX > pipeX && birdY < pipeuY + pipeuH && birdY > pipeuY){
+println("you hit the upper pipe");
+}
 }
