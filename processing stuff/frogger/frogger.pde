@@ -1,34 +1,62 @@
 int frogY = 390;
 int frogX = 200;
-int frogsped = 5;
+int frogsped = 25;
+boolean didwin = false;
 car car1 = new car(350,200,5);
 car car2 = new car(350,200,5);
 car car3 = new car(350,200,5);
+car car4 = new car(350,200,5);
+car car5 = new car(350,200,5);
+car car6 = new car(350,200,5);
 void setup(){
 size(400,400);
 }
 void draw(){
 background(0,0,0);
 ellipse(frogX,frogY,10,10);
+if(didwin == true){
+text("YOU WIN",180,180);
+}
 didHitSide();
 car1.displayCar();
-car1.carMove();
-car1.didHitScreen();
+car1.carMoveL();
+car1.didHitScreenL();
 if(car1.intersects(car1)){
   frogY = 390;
 frogX = 200;
 }
 car2.displayCar();
-car2.carMove();
-car2.didHitScreen();
+car2.carMoveL();
+car2.didHitScreenL();
 if(car2.intersects(car2)){
   frogY = 390;
 frogX = 200;
 }
 car3.displayCar();
-car3.carMove();
-car3.didHitScreen();
+car3.carMoveL();
+car3.didHitScreenL();
 if(car3.intersects(car3)){
+  frogY = 390;
+frogX = 200;
+}
+car4.displayCar();
+car4.carMoveR();
+car4.didHitScreenR();
+if(car4.intersects(car4)){
+  frogY = 390;
+frogX = 200;
+}
+car5.displayCar();
+car5.carMoveR();
+car5.didHitScreenR();
+if(car5.intersects(car5)){
+  frogY = 390;
+frogX = 200;
+}
+car6.displayCar();
+car6.carMoveR();
+car6.didHitScreenR();
+if(car6.intersects(car6)){
   frogY = 390;
 frogX = 200;
 }
@@ -62,6 +90,8 @@ void keyPressed(){
 void didHitSide(){
 if(frogY <= 0){
 frogY = 1;
+fill(255,255,0);
+didwin = true;
 }else if(frogY >= 400){
 frogY = 399;
 }else if(frogX <= 0){
@@ -83,16 +113,25 @@ float carH;
     this.carW=50;
     this.carH=20;
 }
-void carMove(){
+void carMoveL(){
 carX-=carspeed;
+}
+void carMoveR(){
+carX+=carspeed;
 }
 void displayCar(){
   fill(255,255,255);
   rect(carX, carY, 50, 20);
 }
-void didHitScreen(){
-if(carX <= 0){
+void didHitScreenL(){
+if(carX <= 0 && didwin == false){
 carX = 350;
+carY = random(0,400);
+}
+}
+void didHitScreenR(){
+if(carX >= 400 && didwin == false){
+carX = 10;
 carY = random(0,400);
 }
 }
