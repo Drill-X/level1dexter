@@ -1,5 +1,6 @@
 package level1;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,6 +13,7 @@ import javax.swing.JTextField;
 public class SimpleCalculator implements ActionListener {
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
+	JPanel panel2 = new JPanel();
 	JTextField num1 = new JTextField(20);
 	JTextField num2 = new JTextField(20);
 	JLabel ans = new JLabel("ANSWER");
@@ -38,14 +40,17 @@ SimpleCalculator calc = new SimpleCalculator();
 }
 
 void addComp() {
-	frame.add(panel);
-	panel.add(num1);
-	panel.add(num2);
-	panel.add(ans);
-	panel.add(Bdiv);
-	panel.add(Bmul);
-	panel.add(Badd);
-	panel.add(Bsub);
+	frame.add(panel, BorderLayout.NORTH);
+	frame.add(panel2, BorderLayout.SOUTH);
+	panel.setLayout(new BorderLayout());
+	panel2.setLayout(new BorderLayout());
+	panel.add(num1, BorderLayout.WEST);
+	panel.add(num2, BorderLayout.CENTER);
+	panel.add(ans, BorderLayout.EAST);
+	panel2.add(Bdiv, BorderLayout.SOUTH);
+	panel2.add(Bmul, BorderLayout.NORTH);
+	panel2.add(Badd, BorderLayout.WEST);
+	panel2.add(Bsub, BorderLayout.EAST);
 }
 void addListner() {
 	Bdiv.addActionListener(this);

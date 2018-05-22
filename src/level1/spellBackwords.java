@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 public class spellBackwords {
 public static void main(String[] args) {
-	String wordT = JOptionPane.showInputDialog("put in a word")
+	String wordT = JOptionPane.showInputDialog("put in a word");
 	System.out.println(flip(wordT));
 }
 static String flip(String s){
