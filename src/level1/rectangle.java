@@ -16,4 +16,14 @@ void setHeight (int i) {
 	height = i;
 }
 
+int getWidth() {
+	return width;
+}
+int getHeight() {
+	return height;
+}
+
+int findArea(int a, int b) {
+	return a*b;
+}
 }
